@@ -1,9 +1,9 @@
 <?php
 
-namespace MingJSHK\NewebPay;
+namespace Violetshih\NewebPay;
 
 use Throwable;
-use MingJSHK\NewebPay\Exceptions\NewebpayDecodeFailException;
+use Violetshih\NewebPay\Exceptions\NewebpayDecodeFailException;
 
 class NewebPay extends BaseNewebPay
 {
@@ -14,7 +14,7 @@ class NewebPay extends BaseNewebPay
      * @param  int  $amt 訂單金額
      * @param  string  $desc 商品描述
      * @param  string  $email 連絡信箱
-     * @return \MingJSHK\NewebPay\NewebPayMPG
+     * @return \Violetshih\NewebPay\NewebPayMPG
      */
     public function payment($no, $amt, $desc, $email)
     {
@@ -32,7 +32,7 @@ class NewebPay extends BaseNewebPay
      * @param  string  $type 編號類型
      *         'order' => 使用商店訂單編號追蹤
      *         'trade' => 使用藍新金流交易序號追蹤
-     * @return \MingJSHK\NewebPay\NewebPayCancel
+     * @return \Violetshih\NewebPay\NewebPayCancel
      */
     public function cancelCredit($no, $amt, $type = 'order')
     {
@@ -50,7 +50,7 @@ class NewebPay extends BaseNewebPay
      * @param  string  $type 編號類型
      *         'order' => 使用商店訂單編號追蹤
      *         'trade' => 使用藍新金流交易序號追蹤
-     * @return \MingJSHK\NewebPay\NewebPayClose
+     * @return \Violetshih\NewebPay\NewebPayClose
      */
     public function requestPayment($no, $amt, $type = 'order')
     {
@@ -69,7 +69,7 @@ class NewebPay extends BaseNewebPay
      * @param  string  $type 編號類型
      *         'order' => 使用商店訂單編號追蹤
      *         'trade' => 使用藍新金流交易序號追蹤
-     * @return \MingJSHK\NewebPay\NewebPayClose
+     * @return \Violetshih\NewebPay\NewebPayClose
      */
     public function requestRefund($no, $amt, $type = 'order')
     {
@@ -85,7 +85,7 @@ class NewebPay extends BaseNewebPay
      *
      * @param  string  $no 訂單編號
      * @param  int  $amt 訂單金額
-     * @return \MingJSHK\NewebPay\NewebPayQuery
+     * @return \Violetshih\NewebPay\NewebPayQuery
      */
     public function query($no, $amt)
     {
@@ -107,7 +107,7 @@ class NewebPay extends BaseNewebPay
      *                 $data['desc] => 商品描述
      *                 $data['amt'] => 綁定支付金額
      *                 $data['tokenTerm'] => 約定信用卡付款之付款人綁定資料
-     * @return \MingJSHK\NewebPay\NewebPayCreditCard
+     * @return \Violetshih\NewebPay\NewebPayCreditCard
      */
     public function creditcardFirstTrade($data)
     {
@@ -127,7 +127,7 @@ class NewebPay extends BaseNewebPay
      *                $data['email'] => 購買者 email
      *                $data['tokenValue'] => 綁定後取回的 token 值
      *                $data['tokenTerm'] => 約定信用卡付款之付款人綁定資料 要與第一次綁定時一樣
-     * @return \MingJSHK\NewebPay\NewebPayCreditCard
+     * @return \Violetshih\NewebPay\NewebPayCreditCard
      */
     public function creditcardTradeWithToken($data)
     {
@@ -148,7 +148,7 @@ class NewebPay extends BaseNewebPay
      * @param  int  $starttype 檢查卡號模式
      * @param  int  $times  授權期數
      * @param  string  $email 連絡信箱
-     * @return \MingJSHK\NewebPay\NewebPayPeriod
+     * @return \Violetshih\NewebPay\NewebPayPeriod
      */
     public function period($no, $amt, $desc, $type, $point, $starttype, $times, $email)
     {
@@ -164,7 +164,7 @@ class NewebPay extends BaseNewebPay
      * @param  string  $no 訂單編號
      * @param  string  $periodno 委託編號
      * @param  string  $type 狀態類別 (suspend, terminate, restart)
-     * @return \MingJSHK\NewebPay\NewebPayPeriodAlterStatus
+     * @return \Violetshih\NewebPay\NewebPayPeriodAlterStatus
      */
     public function alterPeriodStatus($no, $periodno, $type){
         $newebPay = new NewebPayPeriodAlterStatus($this->config);
@@ -182,7 +182,7 @@ class NewebPay extends BaseNewebPay
      * @param  int  $point 交易週期授權時間
      * @param  int  $times  授權期數
      * @param  string  $extday 信用卡到期日 (2021 年 5 月則填入『0521』)
-     * @return \MingJSHK\NewebPay\NewebPayCreditCard
+     * @return \Violetshih\NewebPay\NewebPayCreditCard
      */
     public function alterPeriodAmt($no, $periodno, $amt, $type, $point, $times, $extday){
         $newebPay = new NewebPayPeriodAlterAmt($this->config);

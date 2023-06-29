@@ -1,6 +1,6 @@
 <?php
 
-namespace MingJSHK\NewebPay;
+namespace Violetshih\NewebPay;
 
 class NewebPayCancel extends BaseNewebPay
 {

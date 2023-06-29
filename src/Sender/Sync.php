@@ -1,8 +1,8 @@
 <?php
 
-namespace MingJSHK\NewebPay\Sender;
+namespace Violetshih\NewebPay\Sender;
 
-use MingJSHK\NewebPay\Contracts\Sender;
+use Violetshih\NewebPay\Contracts\Sender;
 
 class Sync implements Sender
 {

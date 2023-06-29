@@ -1,6 +1,6 @@
 <?php
 
-namespace MingJSHK\NewebPay;
+namespace Violetshih\NewebPay;
 
 use Carbon\Carbon;
 use Illuminate\Contracts\Config\Repository as Config;
@@ -158,7 +158,7 @@ abstract class BaseNewebPay
      * @param  string  $encryptString
      * @return mixed
      *
-     * @throws \MingJSHK\NewebPay\Exceptions\NewebpayDecodeFailException
+     * @throws \Violetshih\NewebPay\Exceptions\NewebpayDecodeFailException
      */
     public function decode($encryptString)
     {

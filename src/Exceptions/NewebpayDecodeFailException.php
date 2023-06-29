@@ -1,6 +1,6 @@
 <?php
 
-namespace MingJSHK\NewebPay\Exceptions;
+namespace Violetshih\NewebPay\Exceptions;
 
 use Exception;
 use Illuminate\Support\Facades\Log;

@@ -20,16 +20,16 @@
     },
     "autoload": {
         "psr-4":{
-            "MingJSHK\\NewebPay\\": "src/"
+            "Violetshih\\NewebPay\\": "src/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "MingJSHK\\NewebPay\\NewebPayServiceProvider"
+                "Violetshih\\NewebPay\\NewebPayServiceProvider"
             ],
             "aliases": {
-                "NewebPay": "MingJSHK\\NewebPay\\Facades\\NewebPay"
+                "NewebPay": "Violetshih\\NewebPay\\Facades\\NewebPay"
             }
         }
     },

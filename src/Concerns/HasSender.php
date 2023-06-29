@@ -1,28 +1,28 @@
 <?php
 
-namespace MingJSHK\NewebPay\Concerns;
+namespace Violetshih\NewebPay\Concerns;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\HandlerStack;
-use MingJSHK\NewebPay\Contracts\Http;
-use MingJSHK\NewebPay\Contracts\Sender;
-use MingJSHK\NewebPay\Sender\Async;
-use MingJSHK\NewebPay\Sender\Sync;
+use Violetshih\NewebPay\Contracts\Http;
+use Violetshih\NewebPay\Contracts\Sender;
+use Violetshih\NewebPay\Sender\Async;
+use Violetshih\NewebPay\Sender\Sync;
 
 trait HasSender
 {
     /**
      * The sender instance.
      *
-     * @var \MingJSHK\NewebPay\Contracts\Sender
+     * @var \Violetshih\NewebPay\Contracts\Sender
      */
     protected $sender;
 
     /**
      * Set the sender instance.
      *
-     * @param  \MingJSHK\NewebPay\Contracts\Sender  $sender
+     * @param  \Violetshih\NewebPay\Contracts\Sender  $sender
      * @return self
      */
     public function setSender(Sender $sender)
@@ -35,7 +35,7 @@ trait HasSender
     /**
      * Get the sender instance.
      *
-     * @return \MingJSHK\NewebPay\Contracts\Sender
+     * @return \Violetshih\NewebPay\Contracts\Sender
      */
     public function getSender()
     {

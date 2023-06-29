@@ -1,6 +1,6 @@
 <?php
 
-namespace MingJSHK\NewebPay\Contracts;
+namespace Violetshih\NewebPay\Contracts;
 
 interface Sender
 {

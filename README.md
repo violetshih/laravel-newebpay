@@ -1,11 +1,5 @@
 # Laravel NewebPay - 藍新金流
 
-> Fork from [ycs77/laravel-newebpay](https://github.com/mingjshk/laravel-newebpay)
-
-[![Latest Stable Version](https://poser.pugx.org/mingjshk/laravel-newebpay/v)](//packagist.org/packages/mingjshk/laravel-newebpay)
-[![Total Downloads](https://poser.pugx.org/mingjshk/laravel-newebpay/downloads)](//packagist.org/packages/mingjshk/laravel-newebpay)
-[![License](https://poser.pugx.org/mingjshk/laravel-newebpay/license)](//packagist.org/packages/mingjshk/laravel-newebpay)
-
 Laravel NewebPay 為針對 Laravel 所寫的金流套件，主要實作藍新金流（原智付通）功能。
 Now Support Laravel 8
 
@@ -37,7 +31,7 @@ composer require violetshih/laravel-newebpay
         /*
          * Package Service Providers...
          */
-        MingJSHK\NewebPay\NewebPayServiceProvider::class,
+        Violetshih\NewebPay\NewebPayServiceProvider::class,
 
         ...
     ],
@@ -45,14 +39,14 @@ composer require violetshih/laravel-newebpay
     'aliases' => [
         ...
 
-        'NewebPay' => MingJSHK\NewebPay\Facades\NewebPay::class,
+        'NewebPay' => Violetshih\NewebPay\Facades\NewebPay::class,
     ]
 ```
 
 ### 發布設置檔案
 
 ```
-php artisan vendor:publish --provider="MingJSHK\NewebPay\NewebPayServiceProvider"
+php artisan vendor:publish --provider="Violetshih\NewebPay\NewebPayServiceProvider"
 ```
 
 ## 使用
@@ -80,7 +74,7 @@ NEWEBPAY_CLIENT_BACK_URL=""
 ### 引用、初始化類別：
 
 ```
-use MingJSHK\NewebPay\NewebPay;
+use Violetshih\NewebPay\NewebPay;
 
 $newebpay = new NewebPay();
 ```
@@ -88,7 +82,7 @@ $newebpay = new NewebPay();
 ### NewebPay MPG - 多功能支付
 
 ```php
-use MingJSHK\NewebPay\Facades\NewebPay;
+use Violetshih\NewebPay\Facades\NewebPay;
 
 function order() 
 {
@@ -104,7 +98,7 @@ function order()
 基本上一般交易可直接在 `config/newebpay.php`做設定，裡面有詳細的解說，但若遇到特殊情況，可依據個別交易做個別 function 設定。
 
 ```php
-use MingJSHK\NewebPay\Facades\NewebPay;
+use Violetshih\NewebPay\Facades\NewebPay;
 
 return NewebPay::payment(
     no, // 訂單編號
@@ -133,7 +127,7 @@ return NewebPay::payment(
 
 ```php
 use Illuminate\Http\Request;
-use MingJSHK\NewebPay\Facades\NewebPay;
+use Violetshih\NewebPay\Facades\NewebPay;
 
 function returnURL(Request $request)
 {
@@ -144,7 +138,7 @@ function returnURL(Request $request)
 ### NewebPay Cancel - 信用卡取消授權
 
 ```php
-use MingJSHK\NewebPay\Facades\NewebPay;
+use Violetshih\NewebPay\Facades\NewebPay;
 
 function creditCancel()
 {
@@ -159,7 +153,7 @@ function creditCancel()
 ### NewebPay Close - 信用卡請款
 
 ```php
-use MingJSHK\NewebPay\Facades\NewebPay;
+use Violetshih\NewebPay\Facades\NewebPay;
 
 function requestPayment()
 {
@@ -174,7 +168,7 @@ function requestPayment()
 ### NewebPay close - 信用卡退款
 
 ```php
-use MingJSHK\NewebPay\Facades\NewebPay;
+use Violetshih\NewebPay\Facades\NewebPay;
 
 function requestRefund()
 {
@@ -189,7 +183,7 @@ function requestRefund()
 ### NewebPay Period - 定期定額委託
 
 ```php
-use MingJSHK\NewebPay\Facades\NewebPay;
+use Violetshih\NewebPay\Facades\NewebPay;
 
 function period()
 {
@@ -209,7 +203,7 @@ function period()
 ### NewebPay Period Status- 修改定期定額委託狀態
 
 ```php
-use MingJSHK\NewebPay\Facades\NewebPay;
+use Violetshih\NewebPay\Facades\NewebPay;
 
 function alterPeriodStatus()
 {
@@ -224,7 +218,7 @@ function alterPeriodStatus()
 ### NewebPay Period - 修改定期定額委託內容
 
 ```php
-use MingJSHK\NewebPay\Facades\NewebPay;
+use Violetshih\NewebPay\Facades\NewebPay;
 
 function alterPeriodAmt()
 {

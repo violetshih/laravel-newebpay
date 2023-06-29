@@ -1,10 +1,10 @@
 <?php
 
-namespace MingJSHK\NewebPay\Sender;
+namespace Violetshih\NewebPay\Sender;
 
 use GuzzleHttp\Client;
-use MingJSHK\NewebPay\Contracts\Http;
-use MingJSHK\NewebPay\Contracts\Sender;
+use Violetshih\NewebPay\Contracts\Http;
+use Violetshih\NewebPay\Contracts\Sender;
 
 class Async implements Sender, Http
 {

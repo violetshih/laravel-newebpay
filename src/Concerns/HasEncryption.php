@@ -1,6 +1,6 @@
 <?php
 
-namespace MingJSHK\NewebPay\Concerns;
+namespace Violetshih\NewebPay\Concerns;
 
 trait HasEncryption
 {
