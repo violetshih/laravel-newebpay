@@ -1,14 +1,14 @@
 {
-    "name": "mingjshk/laravel-newebpay",
+    "name": "violetshih/laravel-newebpay",
     "description": "台灣藍新(智付通) Laravel API",
     "license": "MIT",
     "authors": [
         {
-            "name": "mingjshk",
-            "email": "mingj85415@gmail.com"
+            "name": "violetshih",
+            "email": "swam1991@gmail.com"
         }
     ],
-    "homepage": "https://github.com/MingJSHK/laravel-newebpay",
+    "homepage": "https://github.com/violetshih/laravel-newebpay",
     "require": {
         "php": ">=5.6",
         "guzzlehttp/guzzle": ">=6.3",
