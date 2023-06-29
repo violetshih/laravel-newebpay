@@ -1,6 +1,6 @@
 # Laravel NewebPay - 藍新金流
 
-> Fork from [ycs77/laravel-newebpay](https://github.com/ycs77/laravel-newebpay)
+> Fork from [ycs77/laravel-newebpay](https://github.com/mingjshk/laravel-newebpay)
 
 [![Latest Stable Version](https://poser.pugx.org/mingjshk/laravel-newebpay/v)](//packagist.org/packages/mingjshk/laravel-newebpay)
 [![Total Downloads](https://poser.pugx.org/mingjshk/laravel-newebpay/downloads)](//packagist.org/packages/mingjshk/laravel-newebpay)
@@ -21,7 +21,7 @@ Now Support Laravel 8
 ## 安裝
 
 ```
-composer require mingjshk/laravel-newebpay
+composer require violetshih/laravel-newebpay
 ```
 
 ### 註冊套件
