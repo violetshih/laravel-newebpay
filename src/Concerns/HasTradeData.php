@@ -412,4 +412,7 @@ trait HasTradeData
         return $this;
     }
 
+   
+
+   
 }

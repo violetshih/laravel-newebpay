@@ -96,7 +96,25 @@ class NewebPay extends BaseNewebPay
     }
 
     /**
-     * 信用卡授權 - 首次交易
+     * 信用卡授權 - 首次交易-幕前
+     *
+     * @param  array  $data
+     *                 $data['no'] => 訂單編號
+     *                 $data['email'] => 購買者 email
+     *                 $data['desc] => 商品描述
+     *                 $data['amt'] => 綁定支付金額
+     *                 $data['tokenTerm'] => 約定信用卡付款之付款人綁定資料
+     * @return \Violetshih\NewebPay\NewebPayCreditCard
+     */
+    public function creditcardFirstTradeFrontend($data)
+    {
+        $newebPay = new NewebPayCreditCard($this->config);
+        $newebPay->firstTradeFrontend($data);
+
+        return $newebPay;
+    }
+    /**
+     * 信用卡授權 - 首次交易-幕後
      *
      * @param  array  $data
      *                 $data['no'] => 訂單編號
@@ -109,14 +127,13 @@ class NewebPay extends BaseNewebPay
      *                 $data['tokenTerm'] => 約定信用卡付款之付款人綁定資料
      * @return \Violetshih\NewebPay\NewebPayCreditCard
      */
-    public function creditcardFirstTrade($data)
+    public function creditcardFirstTradeBackend($data)
     {
         $newebPay = new NewebPayCreditCard($this->config);
-        $newebPay->firstTrade($data);
+        $newebPay->firstTradeBackend($data);
 
         return $newebPay;
     }
-
     /**
      * 信用卡授權 - 使用已綁定信用卡進行交易
      *

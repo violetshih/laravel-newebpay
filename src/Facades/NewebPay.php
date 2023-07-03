@@ -10,7 +10,8 @@ use Illuminate\Support\Facades\Facade;
  * @method static \Violetshih\NewebPay\NewebPayClose requestPayment(string $no, int $amt, string $type = 'order')
  * @method static \Violetshih\NewebPay\NewebPayClose requestRefund(string $no, int $amt, string $type = 'order')
  * @method static \Violetshih\NewebPay\NewebPayQuery query(string $no, int $amt)
- * @method static \Violetshih\NewebPay\NewebPayCreditCard creditcardFirstTrade(array $data)
+ * @method static \Violetshih\NewebPay\NewebPayCreditCard creditcardFirstTradeBackend(array $data)
+ * @method static \Violetshih\NewebPay\NewebPayCreditCard creditcardFirstTradeFrontend(array $data)
  * @method static \Violetshih\NewebPay\NewebPayCreditCard creditcardTradeWithToken(array $data)
  * @method static mixed decode(string $encryptString)
  *
