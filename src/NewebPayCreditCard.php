@@ -71,7 +71,7 @@ class NewebPayCreditCard extends BaseNewebPay
      */
     public function firstTradeFrontend($data)
     {
-        $this->$mode = 'frontend';
+        $this->mode = 'frontend';
         $this->setSyncSender();
         $this->setApiPath('MPG/mpg_gateway');
         $this->setCREDITAGREEMENT();
@@ -100,7 +100,7 @@ class NewebPayCreditCard extends BaseNewebPay
     public function firstTradeBackend($data)
     {
         
-        $this->$mode = 'backend';
+        $this->mode = 'backend';
         $this->setApiPath('API/CreditCard');
         $this->setAsyncSender();
         $this->TradeData['TokenSwitch'] = 'get';
@@ -124,7 +124,7 @@ class NewebPayCreditCard extends BaseNewebPay
      */
     public function tradeWithToken($data)
     {
-        $this->$mode = 'backend';
+        $this->mode = 'backend';
         $this->setApiPath('API/CreditCard');
         $this->setASyncSender();
         $this->TradeData['TokenSwitch'] = 'on';
@@ -147,7 +147,7 @@ class NewebPayCreditCard extends BaseNewebPay
     public function getRequestData()
     {
         $tradeInfo = $this->encryptDataByAES($this->TradeData, $this->HashKey, $this->HashIV);
-        if($this->$mode == 'frontend'){
+        if($this->mode == 'frontend'){
             $tradeSha = $this->encryptDataBySHA($tradeInfo, $this->HashKey, $this->HashIV);
 
             return [
