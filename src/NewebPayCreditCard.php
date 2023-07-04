@@ -15,6 +15,10 @@ class NewebPayCreditCard extends BaseNewebPay
     {
        
         $this->TradeData['MerchantID'] = $this->MerchantID;
+        $this->setReturnURL();
+        $this->setNotifyURL();
+        $this->setCustomerURL();
+        $this->setClientBackURL();
     }
 
     /**
@@ -76,9 +80,6 @@ class NewebPayCreditCard extends BaseNewebPay
         $this->setApiPath('MPG/mpg_gateway');
         $this->setCREDITAGREEMENT();
         $this->setLangType();
-        $this->setReturnURL();
-        $this->setNotifyURL();
-        $this->setClientBackURL();
         $this->setLoginType();
         $this->setOrderComment();
         $this->setTokenTerm();
