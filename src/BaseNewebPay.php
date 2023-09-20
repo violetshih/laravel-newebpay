@@ -130,7 +130,25 @@ abstract class BaseNewebPay
         return $this;
     }
 
+    public function switchMerchant($merchantID,$hashkey,$hashiv)
+    {
+        
+        $this->MerchantID = $merchantID;
+        $this->HashKey = $hashkey;
+        $this->HashIV = $hashiv;
 
+        return $this;
+    }
+
+    public function resetDefaultMerchant()
+    {
+        
+        $this->MerchantID = $this->config->get('newebpay.MerchantID');
+        $this->HashKey = $this->config->get('newebpay.HashKey');
+        $this->HashIV = $this->config->get('newebpay.HashIV');
+
+        return $this;
+    }
 
     /**
      * Get request data.
