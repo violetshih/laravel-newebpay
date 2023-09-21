@@ -136,6 +136,7 @@ abstract class BaseNewebPay
         $this->MerchantID = $merchantID;
         $this->HashKey = $hashkey;
         $this->HashIV = $hashiv;
+        $this->TradeData['MerchantID'] = $merchantID;
 
         return $this;
     }
@@ -146,6 +147,7 @@ abstract class BaseNewebPay
         $this->MerchantID = $this->config->get('newebpay.MerchantID');
         $this->HashKey = $this->config->get('newebpay.HashKey');
         $this->HashIV = $this->config->get('newebpay.HashIV');
+        $this->TradeData['MerchantID'] = $this->config->get('newebpay.MerchantID');
 
         return $this;
     }
