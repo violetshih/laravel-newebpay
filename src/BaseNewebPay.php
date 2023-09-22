@@ -137,7 +137,18 @@ abstract class BaseNewebPay
 
         return $this;
     }
+    public function getMerchantSetting()
+    {
+         
 
+        return [
+            'PartnerID' => $this->PartnerID,
+            'MerchantID' =>$this->MerchantID,
+            'HashKey' => $this->HashKey,
+            'HashIV' => $this->HashIV
+            
+        ];
+    }
     public function switchMerchant($merchantID,$hashkey,$hashiv,$switch_tradedata_also = true)
     {
         
