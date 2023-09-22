@@ -412,7 +412,13 @@ trait HasTradeData
         return $this;
     }
 
+    /*---------------平台商API使用------------------*/
    
+    public function setPaymentType($url = null)
+    {
+        $this->TradeData['PaymentType'] = $url ?? $this->config->get('newebpay.PaymentType');
 
+        return $this;
+    }
    
 }

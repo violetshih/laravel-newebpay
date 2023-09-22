@@ -206,4 +206,13 @@ class NewebPay extends BaseNewebPay
         $newebPay->setPeriodAlterAmt($no, $periodno, $amt, $type, $point, $times, $extday);
         return $newebPay;
     }
+
+    /*------平台商------*/
+
+    public function PlatformMerchantModify()
+    {
+        $newebPay = new NewebPayPlatformMerchantModify($this->config);
+         
+        return $newebPay;
+    }
 }
