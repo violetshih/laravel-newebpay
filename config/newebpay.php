@@ -10,6 +10,7 @@
      * 藍新金流商店代號
      */
 
+    'PartnerID' => env('NEWEBPAY_PARTNER_ID'),
     'MerchantID' => env('NEWEBPAY_MERCHANT_ID'),
     'HashKey' => env('NEWEBPAY_HASH_KEY'),
     'HashIV' => env('NEWEBPAY_HASH_IV'),
