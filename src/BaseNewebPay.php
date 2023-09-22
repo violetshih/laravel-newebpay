@@ -25,6 +25,13 @@ abstract class BaseNewebPay
      */
     protected $MerchantID;
 
+     /**
+     * The newebpay PartnerID. 平台商推廣代號
+     *
+     * @var string
+     */
+    protected $PartnerID;
+
     /**
      * The newebpay HashKey.
      *
@@ -76,6 +83,7 @@ abstract class BaseNewebPay
     public function __construct(Config $config)
     {
         $this->config = $config;
+        $this->PartnerID = $this->config->get('newebpay.PartnerID');
         $this->MerchantID = $this->config->get('newebpay.MerchantID');
         $this->HashKey = $this->config->get('newebpay.HashKey');
         $this->HashIV = $this->config->get('newebpay.HashIV');

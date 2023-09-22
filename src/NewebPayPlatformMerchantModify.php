@@ -41,7 +41,7 @@ class NewebPayPlatformMerchantModify extends BaseNewebPay
         $postData = $this->encryptDataByAES($this->TradeData, $this->HashKey, $this->HashIV);
 
         return [
-            'PartnerID_' => $this->MerchantID,
+            'PartnerID_' => $this->PartnerID,
             'PostData_' => $postData,
         ];
     }
