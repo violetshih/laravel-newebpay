@@ -21,7 +21,7 @@ class NewebPayPlatformMerchantModify extends BaseNewebPay
      * ['Credit'=>1,GooglePay=>1]
      * @return \Violetshih\NewebPay\NewebPayPlatformMerchantModify
      */
-    public function setPaymentType($data)
+    public function updatePaymentType($data)
     {
         $list = [];
         foreach ($data as $method => $is_open) {
