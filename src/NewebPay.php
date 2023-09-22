@@ -208,11 +208,17 @@ class NewebPay extends BaseNewebPay
     }
 
     /*------平台商------*/
-
-    public function PlatformMerchantModify()
+    /**
+     * 修改合作商店資料
+     *
+     * @param  string  $tradedata_merchant_id 要修改的合作商店代號
+   
+     * @return \Violetshih\NewebPay\NewebPayPlatformMerchantModify
+     */
+    public function PlatformMerchantModify($tradedata_merchant_id)
     {
         $newebPay = new NewebPayPlatformMerchantModify($this->config);
-         
+        $newebPay->setTradeDataMerchantID($tradedata_merchant_id);
         return $newebPay;
     }
 }

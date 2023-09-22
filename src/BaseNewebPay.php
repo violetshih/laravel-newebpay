@@ -130,28 +130,36 @@ abstract class BaseNewebPay
         return $this;
     }
 
-    public function switchMerchant($merchantID,$hashkey,$hashiv)
+    public function switchMerchant($merchantID,$hashkey,$hashiv,$switch_tradedata_also = true)
     {
         
         $this->MerchantID = $merchantID;
         $this->HashKey = $hashkey;
         $this->HashIV = $hashiv;
-        $this->TradeData['MerchantID'] = $merchantID;
-
+        if($switch_tradedata_also){
+            $this->TradeData['MerchantID'] = $merchantID;
+        }
         return $this;
     }
 
-    public function resetDefaultMerchant()
+    public function resetDefaultMerchant($switch_tradedata_also = true)
     {
         
         $this->MerchantID = $this->config->get('newebpay.MerchantID');
         $this->HashKey = $this->config->get('newebpay.HashKey');
         $this->HashIV = $this->config->get('newebpay.HashIV');
-        $this->TradeData['MerchantID'] = $this->config->get('newebpay.MerchantID');
+        if($switch_tradedata_also){
+            $this->TradeData['MerchantID'] = $this->config->get('newebpay.MerchantID');
+
+        }
 
         return $this;
     }
-
+    public function setTradeDataMerchantID($mid)
+    {
+        $this->TradeData['MerchantID'] = $mid;
+        return $this;
+    }
     /**
      * Get request data.
      *
