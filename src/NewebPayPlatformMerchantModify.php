@@ -13,6 +13,7 @@ class NewebPayPlatformMerchantModify extends BaseNewebPay
     {
         $this->setApiPath('API/AddMerchant/modify');
         $this->setAsyncSender();
+        $this->switchMerchant( $this->PartnerID, $this->PartnerHashKey, $this->PartnerHashIV);
     }
      /**
      * setPaymentType
@@ -30,7 +31,7 @@ class NewebPayPlatformMerchantModify extends BaseNewebPay
         $this->setPaymentType($result );
         return $this;
     }
-   
+    
     /**
      * Get request data.
      *
