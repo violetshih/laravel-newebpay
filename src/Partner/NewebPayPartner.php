@@ -1,9 +1,10 @@
 <?php
 
-namespace Violetshih\NewebPay;
+namespace Violetshih\NewebPay\Partner;
 
 use Throwable;
-use Violetshih\NewebPay\Exceptions\MerchantModify;
+use Violetshih\NewebPay\Exceptions\NewebpayDecodeFailException;
+use Violetshih\NewebPay\BaseNewebPay;
 
 class NewebPayPartner extends BaseNewebPay
 {
@@ -15,7 +16,7 @@ class NewebPayPartner extends BaseNewebPay
      *
      * @param  string  $tradedata_merchant_id 要修改的合作商店代號
    
-     * @return \Violetshih\NewebPay\MerchantModify
+     * @return \Violetshih\NewebPay\Partner\MerchantModify
      */
     public function MerchantModify($tradedata_merchant_id)
     {

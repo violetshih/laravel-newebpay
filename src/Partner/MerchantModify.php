@@ -1,6 +1,7 @@
 <?php
 
-namespace Violetshih\NewebPay;
+namespace Violetshih\NewebPay\Partner;
+use Violetshih\NewebPay\BaseNewebPay;
 
 class MerchantModify extends BaseNewebPay
 {
@@ -18,7 +19,7 @@ class MerchantModify extends BaseNewebPay
      /**
      * setPaymentType
      * ['Credit'=>1,GooglePay=>1]
-     * @return \Violetshih\NewebPay\MerchantModify
+     * @return \Violetshih\NewebPay\Partner\MerchantModify
      */
     public function updatePaymentType($data)
     {

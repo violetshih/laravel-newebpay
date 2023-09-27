@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Facade;
  * @method static \Violetshih\NewebPay\NewebPayCreditCard creditcardTradeWithToken(array $data)
  * @method static mixed decode(string $encryptString)
  *
- * @see \Violetshih\NewebPay\NewebPay
+ * @see \Violetshih\NewebPayy\Partner\NewebPayPartner
  */
 class NewebPayPartner extends Facade
 {
@@ -26,6 +26,6 @@ class NewebPayPartner extends Facade
      */
     protected static function getFacadeAccessor()
     {
-        return \Violetshih\NewebPay\NewebPayPartner::class;
+        return \Violetshih\NewebPay\Partner\NewebPayPartner::class;
     }
 }
