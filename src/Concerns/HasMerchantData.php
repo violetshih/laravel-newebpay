@@ -54,9 +54,9 @@ trait HasMerchantData
      * @param  string|null  $version
      * @return self
      */
-    public function setPartnerVersion($version = null)
+    public function setPartnerVersion($version)
     {
-        $this->MerchantData['Version'] = $version ?? $this->config->get('newebpay.PartnerVersion');
+        $this->MerchantData['Version'] = $version ;
 
         return $this;
     }
