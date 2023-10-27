@@ -237,5 +237,94 @@
      * null = 不開啟
      */
     'CVSCOM' => null,
+
+    /* ========= 平台商參數=========
+    以下開始為平台商參數，非一般交易使用*/
+
+    /*交易手續費，若未設定之支付方式，則使用金流 合作推廣商與藍新金流約定之預設*/
+    'AgreedFee' => null,
+
+    /*
+        不同付款方式的撥款天數，若指定API撥款，填0
+    */ 
+    'AgreedDay' => [
+        'CREDIT' => 0,
+        'UnionPay' => 0,
+        'ForeignCard' => 0,
+        'DCC' => 0,
+        'ApplePay' => 0,
+        'GooglePay' => 0,
+        'SamsungPay' => 0,
+        'PERIOD' => 0,
+        'WEBATM' => 0,
+        'VACC' => 0,
+        'CVS' => 0,
+        'BARCODE' => 0
+    ],
+
+    /*
+    信用卡自動請款
+        1 =自動請款
+        0 =手動請款
+    */
+    'CreditAutoType' => 1,
+
+     /*
+    信用卡 30 天 收款額度，若未帶入此參數，則使用金流合作 推廣商與藍新金流約定之預設值
+    */
+    'CreditLimit' => null,
+
+    /*啟用支付方式*/
+    'PaymentType' =>[
+        'CREDIT' => 1,
+        'UnionPay' => 1,
+        'ForeignCard' => 1,
+        'DCC' => 1,
+        'ApplePay' => 0,
+        'GooglePay' => 0,
+        'SamsungPay' => 0,
+        'PERIOD' => 0,
+        'WEBATM' => 1,
+        'VACC' => 1,
+        'CVS' => 0,
+        'BARCODE' => 0
+    ],
+
+    /*會員帳戶自動提領啟用
+    1=會員帳戶中有餘額時即進行提領 
+    2=每週三當會員帳戶中有餘額時進行提領
+    3=設定每週執行日期 
+    4=設定每月執行日期 
+    9=開啟商店提領
+    如帶空值或未帶此參數，則指定每 周三當會員帳戶中有餘額時即進行提領
+    */
+    'Withdraw' => 9,
+
+    /*會員商店 自動提領啟用
+        1. 當 Withdraw=9 時為必填 
+        2. 參數數值如下:
+            1=當商店帳戶中有餘額時即進行提領
+            2=每周三當商店帳戶中有餘額時進 行提領
+            3=設定每週執行日期 4=設定每月執行日期
+    */
+    'WithdrawMer'=>1,
+
+    /*自動提領規則
+        1. 當 Withdraw=3 時，則此參數值如 下:
+            1 = 週一 2 = 週二 3 = 週三 4 = 週四 5 = 週五 6 = 週六 0 = 週日
+            2. 當 Withdraw=4 時，則此參數值為 01-31
+            3. 若設定為 31 日，若於無 31 日之月 份將於該月最後一天進行提領
+            4. 需指定至少兩個提領日期，請用 [;]符號分隔帶入 例:WithdrawSetting = 01;15;20
+    */
+    'WithdrawSetting' => null,
+    'PartnerNotifyURL' => env('NEWEBPAY_PARTNER_NOTIFY_URL') != null ? env('APP_URL') . env('NEWEBPAY_PARTNER_NOTIFY_URL') : null,
+    'PartnerReturnURL' => env('NEWEBPAY_PARTNER_RETURN_URL') != null ? env('APP_URL') . env('NEWEBPAY_PARTNER_RETURN_URL') : null,
+
+
+
     ];
+
+    
+
+
 ?>
