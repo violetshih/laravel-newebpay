@@ -15,12 +15,15 @@ trait HasMerchantData
     protected function _format($conf)
     {
        
-        $list = [];
-        foreach ($conf as $method => $value) {
-            $text = $method.":".$value;
-            array_push($list,$text);
+        if($conf) {
+            $list = [];
+            foreach ($conf as $method => $value) {
+                $text = $method.":".$value;
+                array_push($list,$text);
+            }
+            return  implode('|', $list);
         }
-       return  implode('|', $list);
+        return null;
     }
     /**
      * Get the newebpay MerchantData.
