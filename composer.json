@@ -29,7 +29,9 @@
                 "Violetshih\\NewebPay\\NewebPayServiceProvider"
             ],
             "aliases": {
-                "NewebPay": "Violetshih\\NewebPay\\Facades\\NewebPay"
+                "NewebPay": "Violetshih\\NewebPay\\Facades\\NewebPay",
+                "NewebPayPartner": "Violetshih\\NewebPay\\Facades\\NewebPayPartner"
+
             }
         }
     },
