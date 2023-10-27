@@ -16,7 +16,7 @@ class MerchantAddWeb extends BaseNewebPay
     public function boot()
     {
         $this->setApiPath('API/AddMerchantWeb');
-        $this->setPartnerVersion("1.7");
+        $this->setPartnerVersion();
         $this->setSyncSender();
         $this->setReturnURL();
         $this->setNotifyURL();
