@@ -30,11 +30,11 @@ class NewebPayPartner extends BaseNewebPay
      *
      * @param  string  $newMerchantID 自定義商店代號
      * 格式為金流合作推廣商代號(3 碼， 限為大寫英文字)+自訂編號(最長 12 碼，限為數字)。
-     * @return \Violetshih\NewebPay\Partner\MerchantAdd
+     * @return \Violetshih\NewebPay\Partner\MerchantAddWeb
      */
     public function MerchantAddWeb($newMerchantID)
     {
-        $newebPay = new MerchantAdd($this->config);
+        $newebPay = new MerchantAddWeb($this->config);
         $newebPay->setMerchantID($newMerchantID);
         return $newebPay;
     }
