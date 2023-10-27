@@ -5,7 +5,7 @@ use Violetshih\NewebPay\BaseNewebPay;
 
 class MerchantAdd extends BaseNewebPay
 {
-    use Concerns\HasMerchantData;
+    use Violetshih\NewebPay\Concerns\HasMerchantData;
 
     /**
      * The newebpay boot hook.
