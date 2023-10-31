@@ -234,10 +234,12 @@ abstract class BaseNewebPay
      *
      * @throws \Violetshih\NewebPay\Exceptions\NewebpayDecodeFailException
      */
-    public function decode($encryptString)
+    public function decode($encryptString,$hashkey = null ,$hashiv=null)
     {
         try {
-            $decryptString = $this->decryptDataByAES($encryptString, $this->HashKey, $this->HashIV);
+            $hashkey == $hashkey ?? $this->HashKey;
+            $hashiv == $hashkey ?? $this->HashIV;
+            $decryptString = $this->decryptDataByAES($encryptString, $hashkey, $hashiv);
 
             return json_decode($decryptString, true);
         } catch (Throwable $e) {
