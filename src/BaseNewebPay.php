@@ -240,8 +240,11 @@ abstract class BaseNewebPay
             $hashkey == $hashkey ?? $this->HashKey;
             $hashiv == $hashkey ?? $this->HashIV;
             $decryptString = $this->decryptDataByAES($encryptString, $hashkey, $hashiv);
-
-            return json_decode($decryptString, true);
+            $result = json_decode($decryptString, true);
+            if($result === null){
+                parse_str($decryptString, $result);
+            }
+            return $result;
         } catch (Throwable $e) {
             throw new NewebpayDecodeFailException($e, $encryptString);
         }
