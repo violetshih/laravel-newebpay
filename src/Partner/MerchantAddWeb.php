@@ -22,6 +22,7 @@ class MerchantAddWeb extends BaseNewebPay
         $this->setNotifyURL();
 
         $this->setAgreedFee();
+        $this->setPaymentType();
         $this->setAgreedDay();
         $this->setCreditAutoType();
         $this->setCreditLimit();
