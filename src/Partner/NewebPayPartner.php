@@ -47,7 +47,7 @@ class NewebPayPartner extends BaseNewebPay
     public function Checkshopopen($merchantID)
     {
         $newebPay = new Checkshopopen($this->config);
-        $newebPay->setMerchantID($newMerchantID);
+        $newebPay->setMerchantID($merchantID);
         return $newebPay;
     }
      
