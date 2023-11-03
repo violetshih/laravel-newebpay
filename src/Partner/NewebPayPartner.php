@@ -38,6 +38,17 @@ class NewebPayPartner extends BaseNewebPay
         $newebPay->setMerchantID($newMerchantID);
         return $newebPay;
     }
-
+ /**
+     * 查詢合作商店資料
+     *
+     * @param  string  $merchantID 查詢目標的商店代號
+     * @return \Violetshih\NewebPay\Partner\Checkshopopen
+     */
+    public function Checkshopopen($merchantID)
+    {
+        $newebPay = new Checkshopopen($this->config);
+        $newebPay->setMerchantID($newMerchantID);
+        return $newebPay;
+    }
      
 }
