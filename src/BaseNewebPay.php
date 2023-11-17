@@ -237,8 +237,8 @@ abstract class BaseNewebPay
     public function decode($encryptString,$hashkey = null ,$hashiv=null)
     {
         try {
-            $hashkey == $hashkey ?? $this->HashKey;
-            $hashiv == $hashkey ?? $this->HashIV;
+            $hashkey = $hashkey ?? $this->HashKey;
+            $hashiv = $hashiv ?? $this->HashIV;   
             $decryptString = $this->decryptDataByAES($encryptString, $hashkey, $hashiv);
             $result = json_decode($decryptString, true);
             if($result === null){

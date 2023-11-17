@@ -40,8 +40,12 @@ class Async implements Sender, Http
             'verify' => false,
         ];
 
-        $result = json_decode($this->http->post($url, $parameter)->getBody(), true);
-
+        $response = $this->http->post($url, $parameter)->getBody();
+        $result = json_decode($response, true);
+        if($result === null){
+            parse_str($response, $result);
+        }
+        
         return $result;
     }
 
