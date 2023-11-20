@@ -250,14 +250,14 @@ abstract class BaseNewebPay
     {
         try {
             if($hashkey == null){
-                if($this->$decodeMode == 'normal'){
+                if($this->decodeMode == 'normal'){
                     $hashkey = $this->HashKey;
                 }else{
                     $hashkey = $this->PartnerHashKey;
                 }
             }
             if($hashiv == null){
-                if($this->$decodeMode == 'normal'){
+                if($this->decodeMode == 'normal'){
                     $hashiv = $this->HashIV;
                 }else{
                     $hashiv = $this->PartnerHashIV;
