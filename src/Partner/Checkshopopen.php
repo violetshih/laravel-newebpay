@@ -18,6 +18,7 @@ class Checkshopopen extends BaseNewebPay
         $this->setApiPath('API/Checkshopopen');
         $this->setPartnerVersion("1.1");
         $this->setAsyncSender();
+        $this->setDecodeMode("partner");
     }
     /**
      * format response data.

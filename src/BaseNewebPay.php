@@ -60,6 +60,12 @@ abstract class BaseNewebPay
      * @var string
      */
     protected $PartnerHashIV;
+     /**
+     * 解碼類別：normal= HashKey+HashIV，partner=PartnerHashKey+PartnerHashIV
+     *
+     * @var string
+     */
+    protected $decodeMode = 'normal';
     /**
      * The newebpay URL.
      *
@@ -155,6 +161,12 @@ abstract class BaseNewebPay
 
         return $this;
     }
+    public function setDecodeMode($mode = 'normal')
+    {
+        $this->decodeMode = $mode;
+
+        return $this;
+    }
     public function getMerchantSetting()
     {
          
@@ -237,8 +249,21 @@ abstract class BaseNewebPay
     public function decode($encryptString,$hashkey = null ,$hashiv=null)
     {
         try {
-            $hashkey = $hashkey ?? $this->HashKey;
-            $hashiv = $hashiv ?? $this->HashIV;   
+            if($hashkey == null){
+                if($this->$decodeMode == 'normal'){
+                    $hashkey = $this->HashKey;
+                }else{
+                    $hashkey = $this->PartnerHashKey;
+                }
+            }
+            if($hashiv == null){
+                if($this->$decodeMode == 'normal'){
+                    $hashiv = $this->HashIV;
+                }else{
+                    $hashiv = $this->PartnerHashIV;
+                }
+            }
+            
             $decryptString = $this->decryptDataByAES($encryptString, $hashkey, $hashiv);
             $result = json_decode($decryptString, true);
             if($result === null){
