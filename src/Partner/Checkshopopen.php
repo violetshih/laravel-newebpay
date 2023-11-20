@@ -33,6 +33,7 @@ class Checkshopopen extends BaseNewebPay
             
         }
         // ----CREDIT---------
+        $result["CREDIT"]["name"] = "信用卡";
         switch ($data["CREDIT"][0]) {
             case "0":
                 $result["CREDIT"]["status"] = "未啟用";
@@ -78,6 +79,7 @@ class Checkshopopen extends BaseNewebPay
         $result["CREDIT"]["AgreedFee"] = $data["CREDIT"][4];
 
         // ----APPLEPAY---------
+        $result["CREDIT"]["name"] = "APPLEPAY";
         switch ($data["APPLEPAY"][0]) {
             case "0":
                 $result["APPLEPAY"]["status"] = "未啟用";
@@ -104,6 +106,7 @@ class Checkshopopen extends BaseNewebPay
         $result["APPLEPAY"]["note"] = $data["APPLEPAY"][1];
 
         // ----GOOGLEPAY---------
+        $result["CREDIT"]["name"] = "GOOGLEPAY";
         switch ($data["GOOGLEPAY"][0]) {
             case "0":
                 $result["GOOGLEPAY"]["status"] = "未啟用";
@@ -130,6 +133,7 @@ class Checkshopopen extends BaseNewebPay
         $result["GOOGLEPAY"]["note"] = $data["GOOGLEPAY"][1];
 
         // ----SAMSUNGPAY---------
+        $result["CREDIT"]["name"] = "SAMSUNGPAY";
         switch ($data["SAMSUNGPAY"][0]) {
             case "0":
                 $result["SAMSUNGPAY"]["status"] = "未啟用";
@@ -156,6 +160,7 @@ class Checkshopopen extends BaseNewebPay
         $result["SAMSUNGPAY"]["note"] = $data["SAMSUNGPAY"][1];
 
         // ----CREDITINS 信用卡分期---------
+        $result["CREDIT"]["name"] = "信用卡分期";
         switch ($data["CREDITINS"][0]) {
             case "0":
                 $result["CREDITINS"]["status"] = "未啟用";
@@ -184,6 +189,7 @@ class Checkshopopen extends BaseNewebPay
         $result["CREDITINS"]["AgreedFee"] = "分3期：".$data["CREDITINS"][3]." | 分6期：".$data["CREDITINS"][4]." | 分9期：".$data["CREDITINS"][5]." | 分12期：".$data["CREDITINS"][6]." | 分18期：".$data["CREDITINS"][7]." | 分24期：".$data["CREDITINS"][8]." | 分30期：".$data["CREDITINS"][9];
         
         // ----CREDITBONUS---------
+        $result["CREDIT"]["name"] = "信用卡紅利";
         switch ($data["CREDITBONUS"][0]) {
             case "0":
                 $result["CREDITBONUS"]["status"] = "未啟用";
@@ -211,6 +217,7 @@ class Checkshopopen extends BaseNewebPay
         $result["CREDITBONUS"]["banks"] = $data["CREDITBONUS"][2];
 
         // ----CREDITFOREIGN---------
+        $result["CREDIT"]["name"] = "國外卡";
         switch ($data["CREDITFOREIGN"][0]) {
             case "0":
                 $result["CREDITFOREIGN"]["status"] = "未啟用";
@@ -255,6 +262,7 @@ class Checkshopopen extends BaseNewebPay
         $result["CREDITFOREIGN"]["AgreedFee"] = $data["CREDITFOREIGN"][3];
 
         // ----CREDITREGULAR 信用卡定期定額---------
+        $result["CREDIT"]["name"] = "信用卡信用卡定期定額紅利";
         switch ($data["CREDITREGULAR"][0]) {
             case "0":
                 $result["CREDITREGULAR"]["status"] = "未啟用";
@@ -281,6 +289,7 @@ class Checkshopopen extends BaseNewebPay
         $result["CREDITREGULAR"]["note"] = $data["CREDITREGULAR"][1];
     
         // ----CREDITDCC 信用卡動態貨幣 轉換---------
+        $result["CREDIT"]["name"] = "信用卡動態貨幣";
         switch ($data["CREDITDCC"][0]) {
             case "0":
                 $result["CREDITDCC"]["status"] = "未啟用";
@@ -309,6 +318,7 @@ class Checkshopopen extends BaseNewebPay
         $result["CREDITDCC"]["AgreedFee"] = $data["CREDITDCC"][3];
 
         // ----UNIONPAY---------
+        $result["CREDIT"]["name"] = "銀聯卡";
         switch ($data["UNIONPAY"][0]) {
             case "0":
                 $result["UNIONPAY"]["status"] = "未啟用";
@@ -331,6 +341,7 @@ class Checkshopopen extends BaseNewebPay
         $result["UNIONPAY"]["AgreedFee"] = $data["UNIONPAY"][3];
 
         // ----ATM---------
+        $result["CREDIT"]["name"] = "ATM";
         switch ($data["ATM"][0]) {
             case "0":
                 $result["ATM"]["status"] = "未啟用";
@@ -359,6 +370,7 @@ class Checkshopopen extends BaseNewebPay
         $result["ATM"]["AgreedFee"] = $data["ATM"][3]."｜單筆上限：". $data["ATM"][4];
 
         // ----WEBATM---------
+        $result["CREDIT"]["name"] = "WEBATM";
         switch ($data["WEBATM"][0]) {
             case "0":
                 $result["WEBATM"]["status"] = "未啟用";
@@ -387,6 +399,7 @@ class Checkshopopen extends BaseNewebPay
         $result["WEBATM"]["AgreedFee"] = $data["WEBATM"][3]."｜單筆上限：". $data["WEBATM"][4];
 
         // ----CVS---------
+        $result["CREDIT"]["name"] = "超商代碼繳費";
         switch ($data["CVS"][0]) {
             case "0":
                 $result["CVS"]["status"] = "未啟用";
@@ -415,6 +428,7 @@ class Checkshopopen extends BaseNewebPay
         $result["CVS"]["AgreedFee"] = $data["CVS"][3];
 
         // ----CVSBARCODE---------
+        $result["CREDIT"]["name"] = "超商條碼繳費";
         switch ($data["CVSBARCODE"][0]) {
             case "0":
                 $result["CVSBARCODE"]["status"] = "未啟用";
