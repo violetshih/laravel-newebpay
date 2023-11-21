@@ -33,6 +33,71 @@ class Checkshopopen extends BaseNewebPay
             $result[$key] = count($data[$key] ) == 1? $value : [];
             
         }
+        // ----member---------
+        switch ($data["MemberState"]) {
+            
+            case "01":
+                $result["MemberState"] = "已驗證";
+                break;
+            case "02":
+                $result["MemberState"] = "未驗證";
+                break;
+            case "03":
+                $result["MemberState"] = "請重新上傳影像檔";
+                break;
+            case "04":
+                $result["MemberState"] = "請修改資料";
+                break;
+            case "05":
+                $result["MemberState"] = "請修改資料並重新上傳影像檔";
+                break;
+            case "06":
+                $result["MemberState"] = "異動申請需補件";
+                break;
+            case "07":
+                $result["MemberState"] = "異動申請審核中";
+                break;
+            case "08":
+                $result["MemberState"] = "異動申請審核未通過";
+                break;
+            case "09":
+                $result["MemberState"] = "撤銷申請";
+                break;
+            case "10":
+                $result["MemberState"] = "暫時停權";
+                break;
+            case "11":
+                $result["MemberState"] = "永久停權";
+                break;
+            default:
+                $result["MemberState"] = "N/A";
+                break;
+        }
+        switch ($data["MerchantState"]) {
+            
+            case "01":
+                $result["MerchantState"] = "審核通過";
+                break;
+            case "02":
+                $result["MerchantState"] = "需補件";
+                break;
+            case "03":
+                $result["MerchantState"] = "永久拒絕";
+                break;
+            case "04":
+                $result["MerchantState"] = "待審核";
+                break;
+            case "05":
+                $result["MerchantState"] = "暫存未建店";
+                break;
+            case "06":
+                $result["MerchantState"] = "關閉中";
+                break;
+           
+            default:
+                $result["MerchantState"] = "N/A";
+                break;
+        }
         // ----CREDIT---------
         $result["CREDIT"]["name"] = "信用卡";
         switch ($data["CREDIT"][0]) {
