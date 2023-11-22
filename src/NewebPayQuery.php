@@ -16,7 +16,6 @@ class NewebPayQuery extends BaseNewebPay
         $this->setApiPath('API/QueryTradeInfo');
         $this->setAsyncSender();
 
-        $this->CheckValues['MerchantID'] = $this->MerchantID;
     }
 
     public function setQuery($no, $amt)
@@ -34,6 +33,7 @@ class NewebPayQuery extends BaseNewebPay
      */
     public function getRequestData()
     {
+        $this->CheckValues['MerchantID'] = $this->MerchantID;
         $CheckValue = $this->queryCheckValue($this->CheckValues, $this->HashKey, $this->HashIV);
 
         return [
