@@ -220,9 +220,15 @@ trait HasTradeData
      * @param  array  $arrPaymentMethod
      * @return self
      */
-    public function setPaymentMethod($arrPaymentMethod = [])
+    public function setPaymentMethod($arrPaymentMethod = [], $merge = true)
     {
-        $arrPaymentMethod = array_merge($this->config->get('newebpay.PaymentMethod'), $arrPaymentMethod);
+        if($merge){
+            $arrPaymentMethod = array_merge($this->config->get('newebpay.PaymentMethod'), $arrPaymentMethod);
+
+        }else{
+            $arrPaymentMethod = $arrPaymentMethod;
+
+        }
 
         $this->TradeData['CREDIT'] = $arrPaymentMethod['CREDIT']['Enable'] ? 1 : 0;
         $this->TradeData['ANDROIDPAY'] = $arrPaymentMethod['ANDROIDPAY'] ? 1 : 0;
