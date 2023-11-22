@@ -231,46 +231,68 @@ trait HasTradeData
         }
         if(isset($arrPaymentMethod['CREDIT'])){
             $this->TradeData['CREDIT'] = $arrPaymentMethod['CREDIT']['Enable'] ? 1 : 0;
+        }else{
+            $this->TradeData['CREDIT']  = 0;
         }
         if(isset($arrPaymentMethod['ANDROIDPAY'])){
             $this->TradeData['ANDROIDPAY'] = $arrPaymentMethod['ANDROIDPAY'] ? 1 : 0;
 
+        }else{
+            $this->TradeData['ANDROIDPAY']  = 0;
         }
         if(isset($arrPaymentMethod['SAMSUNGPAY'])){
             $this->TradeData['SAMSUNGPAY'] = $arrPaymentMethod['SAMSUNGPAY'] ? 1 : 0;
 
+        }else{
+            $this->TradeData['SAMSUNGPAY']  = 0;
         }
         if(isset($arrPaymentMethod['InstFlag'])){
             $this->TradeData['InstFlag'] = ($arrPaymentMethod['CREDIT']['Enable'] and $arrPaymentMethod['CREDIT']['InstFlag']) ? $arrPaymentMethod['CREDIT']['InstFlag'] : 0;
 
+        }else{
+            $this->TradeData['InstFlag']  = 0;
         }
         if(isset($arrPaymentMethod['CreditRed'])){
             $this->TradeData['CreditRed'] = ($arrPaymentMethod['CREDIT']['Enable'] and $arrPaymentMethod['CREDIT']['CreditRed']) ? 1 : 0;
 
+        }else{
+            $this->TradeData['CreditRed']  = 0;
         }
         if(isset($arrPaymentMethod['UNIONPAY'])){
             $this->TradeData['UNIONPAY'] = $arrPaymentMethod['UNIONPAY'] ? 1 : 0;
 
+        }else{
+            $this->TradeData['UNIONPAY']  = 0;
         }
         if(isset($arrPaymentMethod['WEBATM'])){
             $this->TradeData['WEBATM'] = $arrPaymentMethod['WEBATM'] ? 1 : 0;
 
+        }else{
+            $this->TradeData['WEBATM']  = 0;
         }
         if(isset($arrPaymentMethod['VACC'])){
             $this->TradeData['VACC'] = $arrPaymentMethod['VACC'] ? 1 : 0;
 
+        }else{
+            $this->TradeData['VACC']  = 0;
         }
         if(isset($arrPaymentMethod['CVS'])){
             $this->TradeData['CVS'] = $arrPaymentMethod['CVS'] ? 1 : 0;
 
+        }else{
+            $this->TradeData['CVS']  = 0;
         }
         if(isset($arrPaymentMethod['BARCODE'])){
             $this->TradeData['BARCODE'] = $arrPaymentMethod['BARCODE'] ? 1 : 0;
 
+        }else{
+            $this->TradeData['BARCODE']  = 0;
         }
         if(isset($arrPaymentMethod['P2G'])){
             $this->TradeData['P2G'] = $arrPaymentMethod['P2G'] ? 1 : 0;
 
+        }else{
+            $this->TradeData['P2G']  = 0;
         }
 
         return $this;
