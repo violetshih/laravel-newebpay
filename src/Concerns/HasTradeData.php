@@ -226,7 +226,7 @@ trait HasTradeData
             $arrPaymentMethod = array_merge($this->config->get('newebpay.PaymentMethod'), $arrPaymentMethod);
 
         }else{
-            $arrPaymentMethod = $arrPaymentMethod;
+            $arrPaymentMethod = empty($arrPaymentMethod)?$this->config->get('newebpay.PaymentMethod'):$arrPaymentMethod;
 
         }
 
