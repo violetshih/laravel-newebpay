@@ -230,7 +230,7 @@ trait HasTradeData
 
         }
         if(isset($arrPaymentMethod['CREDIT'])){
-            $this->TradeData['CREDIT'] = $arrPaymentMethod['CREDIT']['Enable'] ? 1 : 0;
+            $this->TradeData['CREDIT'] = $arrPaymentMethod['CREDIT']? 1 : 0;
         }else{
             $this->TradeData['CREDIT']  = 0;
         }
@@ -247,13 +247,13 @@ trait HasTradeData
             $this->TradeData['SAMSUNGPAY']  = 0;
         }
         if(isset($arrPaymentMethod['InstFlag'])){
-            $this->TradeData['InstFlag'] = ($arrPaymentMethod['CREDIT']['Enable'] and $arrPaymentMethod['CREDIT']['InstFlag']) ? $arrPaymentMethod['CREDIT']['InstFlag'] : 0;
+            $this->TradeData['InstFlag'] = ($arrPaymentMethod['CREDIT'] and $arrPaymentMethod['InstFlag']) ? $arrPaymentMethod['InstFlag'] : 0;
 
         }else{
             $this->TradeData['InstFlag']  = 0;
         }
         if(isset($arrPaymentMethod['CreditRed'])){
-            $this->TradeData['CreditRed'] = ($arrPaymentMethod['CREDIT']['Enable'] and $arrPaymentMethod['CREDIT']['CreditRed']) ? 1 : 0;
+            $this->TradeData['CreditRed'] = ($arrPaymentMethod['CREDIT'] and $arrPaymentMethod['CreditRed']) ? 1 : 0;
 
         }else{
             $this->TradeData['CreditRed']  = 0;
