@@ -151,12 +151,9 @@
          * 24: 分 24 期功能
          * 以逗號方式開啟多種分期
          */
-        'CREDIT' => [
-            'Enable' => true,
-            'CreditRed' => false,
-            'InstFlag' => 0,
-        ],
-
+        'CREDIT' => true,
+        'InstFlag' => 0,
+        'CreditRed' => false,
         // Google Pay (default: false)
         'ANDROIDPAY' => false,
 
