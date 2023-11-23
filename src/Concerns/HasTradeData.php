@@ -218,19 +218,20 @@ trait HasTradeData
      * 支付方式
      *
      * @param  array  $arrPaymentMethod
-     * @param  string  $merge = custom:忽略定義檔,merge:連集且覆蓋定義檔,intersect:交集定義檔且定義檔不啟用的將保持不啟用
+     * @param  string  $merge = custom:忽略定義檔,merge:連集且覆蓋定義檔,intersect:交集且定義檔不啟用的將保持不啟用
      * @return self
      */
     public function setPaymentMethod($arrPaymentMethod = [], $merge = 'intersect')
     {
         $conf = $this->config->get('newebpay.PaymentMethod');
         if($merge == 'intersect'){
+            $intersect = array_intersect_key($conf, $arrPaymentMethod);
             foreach ($arrPaymentMethod as $key => $value) {
-                if (array_key_exists($key, $conf) && $conf[$key] === false) {
-                    $conf[$key] = $value;
+                if ( $intersect[$key] !== false) {
+                    $intersect[$key] = $value;
                 }
             }
-            $arrPaymentMethod = $conf;
+            $arrPaymentMethod = $intersect;
         }else if($merge == 'merge'){
             $arrPaymentMethod = array_merge($conf, $arrPaymentMethod );
         }else{
