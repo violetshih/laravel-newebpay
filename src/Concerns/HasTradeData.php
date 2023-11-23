@@ -224,10 +224,12 @@ trait HasTradeData
     public function setPaymentMethod($arrPaymentMethod = [], $merge = 'intersect')
     {
         $conf = $this->config->get('newebpay.PaymentMethod');
-        if($merge == 'intersect'){
+        if(empty($arrPaymentMethod)){
+            $arrPaymentMethod = $conf;
+        }else if($merge == 'intersect'){
             $intersect = array_intersect_key($conf, $arrPaymentMethod);
             foreach ($arrPaymentMethod as $key => $value) {
-                if ( $intersect[$key] !== false) {
+                if ( isset($intersect[$key] ) && $intersect[$key] !== false) {
                     $intersect[$key] = $value;
                 }
             }
