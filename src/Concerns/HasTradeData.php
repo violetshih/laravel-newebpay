@@ -218,16 +218,23 @@ trait HasTradeData
      * 支付方式
      *
      * @param  array  $arrPaymentMethod
+     * @param  string  $merge = custom:忽略定義檔,merge:連集且覆蓋定義檔,intersect:交集定義檔且定義檔不啟用的將保持不啟用
      * @return self
      */
-    public function setPaymentMethod($arrPaymentMethod = [], $merge = true)
+    public function setPaymentMethod($arrPaymentMethod = [], $merge = 'intersect')
     {
-        if($merge){
-            $arrPaymentMethod = array_merge($this->config->get('newebpay.PaymentMethod'), $arrPaymentMethod);
-
+        $conf = $this->config->get('newebpay.PaymentMethod');
+        if($merge == 'intersect'){
+            foreach ($arrPaymentMethod as $key => $value) {
+                if (array_key_exists($key, $conf) && $conf[$key] === false) {
+                    $conf[$key] = $value;
+                }
+            }
+            $arrPaymentMethod = $conf;
+        }else if($merge == 'merge'){
+            $arrPaymentMethod = array_merge($conf, $arrPaymentMethod );
         }else{
-            $arrPaymentMethod = empty($arrPaymentMethod)?$this->config->get('newebpay.PaymentMethod'):$arrPaymentMethod;
-
+            $arrPaymentMethod = empty($arrPaymentMethod)?$conf:$arrPaymentMethod;
         }
         if(isset($arrPaymentMethod['CREDIT'])){
             $this->TradeData['CREDIT'] = $arrPaymentMethod['CREDIT']? 1 : 0;
@@ -239,6 +246,24 @@ trait HasTradeData
 
         }else{
             $this->TradeData['ANDROIDPAY']  = 0;
+        }
+        if(isset($arrPaymentMethod['LINEPAY'])){
+            $this->TradeData['LINEPAY'] = $arrPaymentMethod['LINEPAY'] ? 1 : 0;
+
+        }else{
+            $this->TradeData['LINEPAY']  = 0;
+        }
+        if(isset($arrPaymentMethod['ESUNWALLET'])){
+            $this->TradeData['ESUNWALLET'] = $arrPaymentMethod['ESUNWALLET'] ? 1 : 0;
+
+        }else{
+            $this->TradeData['ESUNWALLET']  = 0;
+        }
+        if(isset($arrPaymentMethod['TAIWANPAY'])){
+            $this->TradeData['TAIWANPAY'] = $arrPaymentMethod['TAIWANPAY'] ? 1 : 0;
+
+        }else{
+            $this->TradeData['TAIWANPAY']  = 0;
         }
         if(isset($arrPaymentMethod['SAMSUNGPAY'])){
             $this->TradeData['SAMSUNGPAY'] = $arrPaymentMethod['SAMSUNGPAY'] ? 1 : 0;
