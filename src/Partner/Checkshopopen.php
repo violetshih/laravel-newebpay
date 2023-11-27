@@ -34,7 +34,7 @@ class Checkshopopen extends BaseNewebPay
             
         }
         // ----member---------
-        switch ($data["MemberState"]) {
+        switch ($data["MemberState"][0]) {
             
             case "01":
                 $result["MemberState"] = "已驗證";
@@ -70,7 +70,7 @@ class Checkshopopen extends BaseNewebPay
                 $result["MemberState"] = "永久停權";
                 break;
             default:
-                $result["MemberState"] = $data["MemberState"];
+                $result["MemberState"] = $data["MemberState"][0];
                 break;
         }
         switch ($data["MerchantState"]) {
