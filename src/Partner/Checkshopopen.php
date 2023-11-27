@@ -70,7 +70,7 @@ class Checkshopopen extends BaseNewebPay
                 $result["MemberState"] = "永久停權";
                 break;
             default:
-                $result["MemberState"] = "N/A";
+                $result["MemberState"] = $data["MemberState"];
                 break;
         }
         switch ($data["MerchantState"]) {
@@ -95,7 +95,7 @@ class Checkshopopen extends BaseNewebPay
                 break;
            
             default:
-                $result["MerchantState"] = "N/A";
+                $result["MerchantState"] = $data["MerchantState"];
                 break;
         }
         // ----CREDIT---------
@@ -123,7 +123,7 @@ class Checkshopopen extends BaseNewebPay
                 $result["CREDIT"]["status"] = "永久拒絕";
                 break;
             default:
-                $result["CREDIT"]["status"] = "N/A";
+                $result["CREDIT"]["status"] = $data["CREDIT"][0];
                 break;
         }
         $result["CREDIT"]["note"] = $data["CREDIT"][1];
@@ -138,7 +138,7 @@ class Checkshopopen extends BaseNewebPay
                 $result["CREDIT"]["is3D"] = "強制3D";
                 break;
             default:
-                $result["CREDIT"]["is3D"] = "N/A";
+                $result["CREDIT"]["is3D"] = $data["CREDIT"][2];
                 break;
         }
         $result["CREDIT"]["AgreedDay"] = $data["CREDIT"][3];
@@ -166,7 +166,7 @@ class Checkshopopen extends BaseNewebPay
                 $result["APPLEPAY"]["status"] = "關閉";
                 break;
             default:
-                $result["APPLEPAY"]["status"] = "N/A";
+                $result["APPLEPAY"]["status"] = $data["APPLEPAY"][0];
                 break;
         }
         $result["APPLEPAY"]["note"] = $data["APPLEPAY"][1];
@@ -193,7 +193,7 @@ class Checkshopopen extends BaseNewebPay
                 $result["GOOGLEPAY"]["status"] = "關閉";
                 break;
             default:
-                $result["GOOGLEPAY"]["status"] = "N/A";
+                $result["GOOGLEPAY"]["status"] = $data["GOOGLEPAY"][0];
                 break;
         }
         $result["GOOGLEPAY"]["note"] = $data["GOOGLEPAY"][1];
@@ -220,7 +220,7 @@ class Checkshopopen extends BaseNewebPay
                 $result["SAMSUNGPAY"]["status"] = "關閉";
                 break;
             default:
-                $result["SAMSUNGPAY"]["status"] = "N/A";
+                $result["SAMSUNGPAY"]["status"] = $data["SAMSUNGPAY"][0];
                 break;
         }
         $result["SAMSUNGPAY"]["note"] = $data["SAMSUNGPAY"][1];
@@ -247,7 +247,7 @@ class Checkshopopen extends BaseNewebPay
                 $result["CREDITINS"]["status"] = "關閉";
                 break;
             default:
-                $result["CREDITINS"]["status"] = "N/A";
+                $result["CREDITINS"]["status"] = $data["CREDITINS"][0];
                 break;
         }
         $result["CREDITINS"]["note"] = $data["CREDITINS"][1];
@@ -276,7 +276,7 @@ class Checkshopopen extends BaseNewebPay
                 $result["CREDITBONUS"]["status"] = "關閉";
                 break;
             default:
-                $result["CREDITBONUS"]["status"] = "N/A";
+                $result["CREDITBONUS"]["status"] = $data["CREDITBONUS"][0];
                 break;
         }
         $result["CREDITBONUS"]["note"] = $data["CREDITBONUS"][1];
@@ -307,7 +307,7 @@ class Checkshopopen extends BaseNewebPay
                 $result["CREDITFOREIGN"]["status"] = "永久拒絕";
                 break;
             default:
-                $result["CREDITFOREIGN"]["status"] = "N/A";
+                $result["CREDITFOREIGN"]["status"] = $data["CREDITFOREIGN"][0];
                 break;
         }
         $result["CREDITFOREIGN"]["note"] = $data["CREDITFOREIGN"][1];
@@ -322,7 +322,7 @@ class Checkshopopen extends BaseNewebPay
                 $result["CREDITFOREIGN"]["is3D"] = "強制3D";
                 break;
             default:
-                $result["CREDITFOREIGN"]["is3D"] = "N/A";
+                $result["CREDITFOREIGN"]["is3D"] = $data["CREDITFOREIGN"][2];
                 break;
         }
         $result["CREDITFOREIGN"]["AgreedFee"] = $data["CREDITFOREIGN"][3];
@@ -349,7 +349,7 @@ class Checkshopopen extends BaseNewebPay
                 $result["CREDITREGULAR"]["status"] = "關閉";
                 break;
             default:
-                $result["CREDITREGULAR"]["status"] = "N/A";
+                $result["CREDITREGULAR"]["status"] = $data["CREDITREGULAR"][0];
                 break;
         }
         $result["CREDITREGULAR"]["note"] = $data["CREDITREGULAR"][1];
@@ -376,7 +376,7 @@ class Checkshopopen extends BaseNewebPay
                 $result["CREDITDCC"]["status"] = "關閉";
                 break;
             default:
-                $result["CREDITDCC"]["status"] = "N/A";
+                $result["CREDITDCC"]["status"] = $data["CREDITDCC"][0];
                 break;
         }
         $result["CREDITDCC"]["note"] = $data["CREDITDCC"][1];
@@ -399,7 +399,7 @@ class Checkshopopen extends BaseNewebPay
                 $result["UNIONPAY"]["status"] = "關閉";
                 break;
             default:
-                $result["UNIONPAY"]["status"] = "N/A";
+                $result["UNIONPAY"]["status"] = $data["UNIONPAY"][0];
                 break;
         }
         $result["UNIONPAY"]["note"] = $data["UNIONPAY"][1];
@@ -428,7 +428,7 @@ class Checkshopopen extends BaseNewebPay
                 $result["ATM"]["status"] = "關閉";
                 break;
             default:
-                $result["ATM"]["status"] = "N/A";
+                $result["ATM"]["status"] = $data["ATM"][0];
                 break;
         }
         $result["ATM"]["note"] = $data["ATM"][1];
@@ -457,7 +457,7 @@ class Checkshopopen extends BaseNewebPay
                 $result["WEBATM"]["status"] = "關閉";
                 break;
             default:
-                $result["WEBATM"]["status"] = "N/A";
+                $result["WEBATM"]["status"] = $data["WEBATM"][0];
                 break;
         }
         $result["WEBATM"]["note"] = $data["WEBATM"][1];
@@ -486,7 +486,7 @@ class Checkshopopen extends BaseNewebPay
                 $result["CVS"]["status"] = "關閉";
                 break;
             default:
-                $result["CVS"]["status"] = "N/A";
+                $result["CVS"]["status"] = $data["CVS"][0];
                 break;
         }
         $result["CVS"]["note"] = $data["CVS"][1];
@@ -515,7 +515,7 @@ class Checkshopopen extends BaseNewebPay
                 $result["CVSBARCODE"]["status"] = "關閉";
                 break;
             default:
-                $result["CVSBARCODE"]["status"] = "N/A";
+                $result["CVSBARCODE"]["status"] = $data["CVSBARCODE"][0];
                 break;
         }
         $result["CVSBARCODE"]["note"] = $data["CVSBARCODE"][1];
