@@ -50,5 +50,20 @@ class NewebPayPartner extends BaseNewebPay
         $newebPay->setMerchantID($merchantID);
         return $newebPay;
     }
-     
+      /**
+     * 撥款指示
+     *
+     * @param  string  $merchantID 合作商店代號
+     * @param  string  $no 訂單編號
+     * @param  string  $amt 請款金額
+
+     * @return \Violetshih\NewebPay\Partner\ExportInstruct
+     */
+    public function ExportInstruct($merchantID,$no, $amt)
+    {
+        $newebPay = new ExportInstruct($this->config);
+        $newebPay->setMerchantID($merchantID);
+        $newebPay->setOrder($no, $amt);
+        return $newebPay;
+    }
 }

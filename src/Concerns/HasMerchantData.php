@@ -181,5 +181,11 @@ trait HasMerchantData
         return $this;
     }
 
-   
+    public function setOrder($no, $amt)
+    {
+        $this->MerchantData['MerchantOrderNo'] = $no;
+        $this->MerchantData['Amount'] = $amt;
+       
+        return $this;
+    }
 }
