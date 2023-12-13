@@ -66,4 +66,18 @@ class NewebPayPartner extends BaseNewebPay
         $newebPay->setOrder($no, $amt);
         return $newebPay;
     }
+      /**
+     * 帳務明細查詢
+     *
+     * @param  string  $merchantID 合作商店代號
+     * @param  string  $fundTime 撥款日期
+
+     * @return \Violetshih\NewebPay\Partner\ReportFundQuery
+     */
+    public function ReportFundQuery($merchantID,$fundTime)
+    {
+        $newebPay = new ReportFundQuery($this->config);
+        $newebPay->setQuery($merchantID,$fundTime);
+        return $newebPay;
+    }
 }
