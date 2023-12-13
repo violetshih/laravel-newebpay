@@ -4,7 +4,7 @@ namespace Violetshih\NewebPay\Partner;
 use Violetshih\NewebPay\BaseNewebPay;
 use Violetshih\NewebPay\Concerns\HasMerchantData;
 
-class Checkshopopen extends BaseNewebPay
+class ReportFundQuery extends BaseNewebPay
 {
     use HasMerchantData;
     protected $CheckValues;
