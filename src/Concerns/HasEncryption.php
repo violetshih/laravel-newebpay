@@ -31,7 +31,13 @@ trait HasEncryption
 
         return strtoupper(hash('sha256', $postDataStr));
     }
-
+    protected function queryCheckValue2($parameter, $hashKey, $hashIV)
+    {
+        ksort($parameter);
+        $checkStr = http_build_query($parameter);
+        $postDataStr = 'HashKey=' . $hashKey . '&' . $checkStr . '&HashIV=' . $hashIV;
+        return strtoupper(hash('sha256', $postDataStr));
+    }
     protected function addPadding($string, $blocksize = 32)
     {
         $len = strlen($string);

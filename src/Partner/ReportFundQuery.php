@@ -36,7 +36,7 @@ class ReportFundQuery extends BaseNewebPay
     {
         $this->CheckValues['TimeStamp'] = $this->timestamp;
 
-        $CheckValue = $this->queryCheckValue($this->CheckValues, $this->PartnerHashKey, $this->PartnerHashIV);
+        $CheckValue = $this->queryCheckValue2($this->CheckValues, $this->HashKey, $this->HashIV);
         return [
             'MerchantID' =>  $this->CheckValues['MerchantID'],
             'FundTime' => $this->CheckValues['FundTime'],
