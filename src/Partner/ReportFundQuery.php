@@ -8,7 +8,7 @@ class ReportFundQuery extends BaseNewebPay
 {
     use HasMerchantData;
     protected $CheckValues;
-    protected $hasVersion = true;
+    protected $hasVersion;
     /**
      * The newebpay boot hook.
      *
@@ -28,9 +28,9 @@ class ReportFundQuery extends BaseNewebPay
 
         return $this;
     }
-    public function allowVersion()
+    public function allowVersion($allowVersion)
     {
-        $this->hasVersion = true;
+        $this->hasVersion = $allowVersion;
 
         return $this;
     }

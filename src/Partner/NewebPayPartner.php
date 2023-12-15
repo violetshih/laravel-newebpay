@@ -71,16 +71,16 @@ class NewebPayPartner extends BaseNewebPay
      *
      * @param  string  $merchantID 合作商店代號
      * @param  string  $fundTime 撥款日期
+     * @param  string  $allowVersion true=平台方，false=商店自己
 
      * @return \Violetshih\NewebPay\Partner\ReportFundQuery
      */
-    public function ReportFundQuery($merchantID,$fundTime,$allowVersion = false )
+    public function ReportFundQuery($merchantID,$fundTime,$allowVersion = true )
     {
         $newebPay = new ReportFundQuery($this->config);
         $newebPay->setQuery($merchantID,$fundTime);
-        if($allowVersion){
-            allowVersion();
-        }
+        $newebPay->allowVersion($allowVersion);
+        
         return $newebPay;
     }
 }
