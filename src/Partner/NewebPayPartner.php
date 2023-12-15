@@ -74,10 +74,13 @@ class NewebPayPartner extends BaseNewebPay
 
      * @return \Violetshih\NewebPay\Partner\ReportFundQuery
      */
-    public function ReportFundQuery($merchantID,$fundTime)
+    public function ReportFundQuery($merchantID,$fundTime,$allowVersion = false )
     {
         $newebPay = new ReportFundQuery($this->config);
         $newebPay->setQuery($merchantID,$fundTime);
+        if($allowVersion){
+            allowVersion();
+        }
         return $newebPay;
     }
 }

@@ -8,6 +8,7 @@ class ReportFundQuery extends BaseNewebPay
 {
     use HasMerchantData;
     protected $CheckValues;
+    protected $hasVersion = true;
     /**
      * The newebpay boot hook.
      *
@@ -27,6 +28,12 @@ class ReportFundQuery extends BaseNewebPay
 
         return $this;
     }
+    public function allowVersion()
+    {
+        $this->hasVersion = true;
+
+        return $this;
+    }
     /**
      * Get request data.
      *
@@ -37,12 +44,15 @@ class ReportFundQuery extends BaseNewebPay
         $this->CheckValues['TimeStamp'] = $this->timestamp;
 
         $CheckValue = $this->queryCheckValue2($this->CheckValues, $this->HashKey, $this->HashIV);
-        return [
+        $postData =  [
             'MerchantID' =>  $this->CheckValues['MerchantID'],
             'FundTime' => $this->CheckValues['FundTime'],
             'CheckValue' => $CheckValue,
-            'TimeStamp' => $this->timestamp,
-            'Version' => $this->MerchantData['Version']
+            'TimeStamp' => $this->timestamp
         ];
+        if($this->hasVersion){
+            $postData ["Version"] = $this->MerchantData['Version'];
+        }
+        return $postData;
     }
 }
