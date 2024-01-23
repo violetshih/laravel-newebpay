@@ -17,23 +17,25 @@ class MerchantModify extends BaseNewebPay
         $this->setAsyncSender();
         $this->switchMerchant( $this->PartnerID, $this->PartnerHashKey, $this->PartnerHashIV);
     }
-     /**
-     * setPaymentType
-     * ['Credit'=>1,GooglePay=>1]
-     * @return \Violetshih\NewebPay\Partner\MerchantModify
-     */
-    public function updatePaymentType($data)
+    
+    public function updateAgreedFee($data)
     {
-        $list = [];
-        foreach ($data as $method => $is_open) {
-            $text = $method.":".$is_open;
-            array_push($list,$text);
-        }
-        $result = implode(', ', $list);
-        $this->setPaymentType($result );
+       
+        $this->setAgreedFee($data );
         return $this;
     }
-    
+    public function updatePaymentType($data)
+    {
+       
+        $this->setPaymentType($data );
+        return $this;
+    }
+    public function updateAgreedDay($data)
+    {
+       
+        $this->setAgreedDay($data );
+        return $this;
+    }
     /**
      * Get request data.
      *
