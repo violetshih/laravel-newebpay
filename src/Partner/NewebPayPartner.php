@@ -14,14 +14,14 @@ class NewebPayPartner extends BaseNewebPay
     /**
      * 修改合作商店資料
      *
-     * @param  string  $tradedata_merchant_id 要修改的合作商店代號
+     * @param  string  $merchantID 要修改的合作商店代號
    
      * @return \Violetshih\NewebPay\Partner\MerchantModify
      */
-    public function MerchantModify($tradedata_merchant_id)
+    public function MerchantModify($merchantID)
     {
         $newebPay = new MerchantModify($this->config);
-        $newebPay->setTradeDataMerchantID($tradedata_merchant_id);
+        $newebPay->setMerchantID($merchantID);
         return $newebPay;
     }
 
