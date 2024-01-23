@@ -17,26 +17,9 @@ class MerchantModify extends BaseNewebPay
         $this->setApiPath('API/AddMerchant/modify');
         $this->setVersion("1.7");
         $this->setAsyncSender();
+        $this->setDecodeMode("partner");
+
         $this->switchMerchant( $this->PartnerID, $this->PartnerHashKey, $this->PartnerHashIV);
-    }
-    
-    public function updateAgreedFee($data)
-    {
-       
-        $this->setAgreedFee($data );
-        return $this;
-    }
-    public function updatePaymentType($data)
-    {
-       
-        $this->setPaymentType($data );
-        return $this;
-    }
-    public function updateAgreedDay($data)
-    {
-       
-        $this->setAgreedDay($data );
-        return $this;
     }
     /**
      * Get request data.
@@ -45,7 +28,7 @@ class MerchantModify extends BaseNewebPay
      */
     public function getRequestData()
     {
-        $postData = $this->encryptDataByAES($this->TradeData, $this->HashKey, $this->HashIV);
+        $postData = $this->encryptDataByAES($this->MerchantData, $this->PartnerHashKey, $this->PartnerHashIV);
 
         return [
             'PartnerID_' => $this->PartnerID,
