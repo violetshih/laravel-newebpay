@@ -13,7 +13,7 @@ class Sync implements Sender
      * @param  string  $url
      * @return mixed
      */
-    public function send($request, $url)
+    public function send($request, $url, $headers = [])
     {
         //dd($request);
         $result = '<form id="order-form" method="post" action=' . $url . ' >';

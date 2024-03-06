@@ -33,13 +33,15 @@ class Async implements Sender, Http
      * @param  string  $url
      * @return mixed
      */
-    public function send($request, $url)
+    public function send($request, $url, $headers = [])
     {
         $parameter = [
             'form_params' => $request,
             'verify' => false,
         ];
-
+        if(!empty($headers)){
+            $parameter["headers"] = $headers;
+        }
         $response = $this->http->post($url, $parameter)->getBody();
         $result = json_decode($response, true);
         if($result === null){

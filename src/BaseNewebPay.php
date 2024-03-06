@@ -94,6 +94,8 @@ abstract class BaseNewebPay
      */
     protected $timestamp;
 
+    protected $Headers;
+
     /**
      * Create a new base newebpay instance.
      *
@@ -111,7 +113,7 @@ abstract class BaseNewebPay
         $this->MerchantID = $this->config->get('newebpay.MerchantID');
         $this->HashKey = $this->config->get('newebpay.HashKey');
         $this->HashIV = $this->config->get('newebpay.HashIV');
-
+        $this->Headers = $this->config->get('newebpay.Headers');
         $this->setTimestamp();
         $this->setVersion();
         $this->setRespondType();
@@ -235,7 +237,7 @@ abstract class BaseNewebPay
      */
     public function submit()
     {
-        return $this->sender->send($this->getRequestData(), $this->url);
+        return $this->sender->send($this->getRequestData(), $this->url,$this->Headers);
     }
 
     /**

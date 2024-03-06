@@ -19,7 +19,6 @@ class MerchantModify extends BaseNewebPay
         $this->setAsyncSender();
         $this->setDecodeMode("partner");
 
-        $this->switchMerchant( $this->PartnerID, $this->PartnerHashKey, $this->PartnerHashIV);
     }
     /**
      * Get request data.

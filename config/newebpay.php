@@ -316,11 +316,11 @@
     'PartnerNotifyURL' => env('NEWEBPAY_PARTNER_NOTIFY_URL') != null ? env('APP_URL') . env('NEWEBPAY_PARTNER_NOTIFY_URL') : null,
     'PartnerReturnURL' => env('NEWEBPAY_PARTNER_RETURN_URL') != null ? env('APP_URL') . env('NEWEBPAY_PARTNER_RETURN_URL') : null,
 
-
+    // Async請求時代入的headers
+    'Headers'=>[ ],
 
     ];
-
-    
+   
 
 
 ?>
