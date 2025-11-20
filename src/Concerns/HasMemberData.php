@@ -12,21 +12,7 @@ trait HasMemberData
      * @var array
      */
     protected $MemberData = [];
-
-    protected function _format($conf)
-    {
-       
-        if($conf) {
-            $list = [];
-            foreach ($conf as $method => $value) {
-                $text = $method.":".$value;
-                array_push($list,$text);
-            }
-            return  implode('|', $list);
-        }
-        return null;
-    }
-
+ 
     /**
      * Get the newebpay MemberData.
      *
