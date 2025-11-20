@@ -3,10 +3,10 @@
 namespace Violetshih\NewebPay\Partner;
 use Violetshih\NewebPay\BaseNewebPay;
 use Violetshih\NewebPay\Concerns\HasMerchantData;
-
+use Violetshih\NewebPay\Concerns\HasMemberData;
 class MerchantModify extends BaseNewebPay
 {
-    use HasMerchantData;
+    use HasMerchantData,HasMemberData;
     /**
      * The newebpay boot hook.
      *

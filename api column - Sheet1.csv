@@ -1,0 +1,45 @@
+參數名稱,參數中文名稱,型態,備註說明
+Version,串接程式版本,String(5),須固定填入 1.8。
+MerchantID,商店代號,String(15),該合作商店之藍新金流商店代號。
+MenberUnified,會員證號,String(10),當 [MenberUnified=身分證字號] 時，MemberName、IDCardDate、IDCardPlace、IDFrom、Date 皆為必填；若 [MenberUnified=統一編號] 時，本欄可獨立異動。
+ApplicantName,聯繫人姓名,String(50),聯繫人姓名，藍新將於異動或需補件時聯繫此人。支援中、英文、[-]、[空白間格]、[.] 符號。
+ApplicantEmail,聯繫人 email,String(40),聯繫人 email，僅一組，需符合 email 規則。
+ApplicantPhone,聯繫人電話,String(13),聯繫人電話，可為市話或手機 (例：0x-000111 或 09xx-000111)。
+MemberName,會員名稱,String(60),個人會員 (身分證字號)：提供身分證登記姓名，長度限制 20 個字元，調整時需連動 MenberUnified、IDCardDate、IDCardPlace、IDFrom、Date。企業會員 (統一編號)：提供公司登記名稱，長度限制 60 個字元，本欄位不可與 MenberUnified 同時異動。
+CapitalAmount,實收資本額,String(255),僅接受數字，可接受數字 0。
+IncorporationDate,核准設立日期,String(8),西元年月日 (例：20190515)。
+CompanyAddress,公司登記地址,String(100),可接受中文、數字及”-“符號。
+RepresentName,企業代表人中文姓名,String(50),企業代表人中文姓名，若為外國籍無中文姓名，請帶入英文姓名。異動本欄位時需依 ManagerID 帶入連動參數。
+ManagerID,企業代表人身分證字號,,異動 RepresentName 時本欄必填。包含身分證件類型與字號，用分號 [;] 分隔 (類型：1=本國籍、2=居留證號、3=稅籍編號、5=本國法人、6=外國法人)。
+IDCardDate,發證日期,String(8),異動 RepresentName 時本欄必填。格式依 ManagerID 類型填入 (民國年或西元年)。
+IDCardPlace,身份證發證地點,String(10),[MenberUnified=身分證字號] 或 異動 RepresentName 且 [ManagerID=1] 時必填。請參考附錄一。
+IDFrom,身分證領補換,Int(1),[MenberUnified=身分證字號] 或 異動 RepresentName 且 [ManagerID=1] 時必填 (1=初發、2=補證、3=換發)。
+Date,出生年月日,String(8),[MenberUnified=身分證字號] 或 異動 RepresentName 且 [ManagerID=1、2、3] 時必填 (西元年月日)。
+ARCexp,居留證到期日,String(8),異動 RepresentName 且 [ManagerID=2] 時必填 (若為永久居留證，請填入 00000000)。
+ARCsrlno,居留證背面序號,String(10),異動 RepresentName 且 [ManagerID=2] 時必填 (僅能填入英數字)。
+Passportexp,護照到期日,String(8),異動 RepresentName 且 [ManagerID=3] 時必填 (西元年月日)。
+RepresentCPAdd,法人登記地址,String(100),異動 RepresentName 且 [ManagerID=5] 時必填。接受中文、數字及”-“符號。
+RepresentCapitalAmt,法人實收資本額,String(255),異動 RepresentName 且 [ManagerID=5] 時必填。僅接受數字，可接受數字 0。
+RepresentManagerName,法人公司代表人名稱,String(50),異動 RepresentName 且 [ManagerID=5] 時必填。若法人代表為外國籍，無中文姓名，支援英文姓名。
+MemberPhone,會員電話,String(13),合作商店修改的聯絡電話。
+ModifyAccName,會員金融機構帳戶戶名,String(60),請帶入合作商店修改的金融機構帳戶之戶名；僅支援企業會員可更改。
+BankCode,會員金融機構帳戶金融機構代碼,String(3),請帶入合作商店新增的金融機構帳戶之金融機構代碼。
+SubBankCode,會員金融機構帳戶金融機構分行代碼,String(4),請帶入合作商店新增的金融機構帳戶之金融機構分行代碼。
+BankAccount,會員金融機構帳戶帳號,String(30),請帶入合作商店新增的金融機構帳戶之帳號。此帳號戶名需與會員名稱相同。
+MerchantEmail,商店客服信箱, String(300),"1.請帶入欲修改的商店客服信箱
+2.既有信箱不會保留，以新信箱取代之可帶入多組信箱請用"",""分隔
+例：test@YYY.com,test2@YYY.com"
+MerchantAddrCity,聯絡地址－城市, String(5),"請帶入合作商店修改的聯絡地址之城市
+例：新北市、台南市"
+MerchantAddrArea,"聯絡地址-
+地區", String(5),"請帶入合作商店修改的聯絡地址之地區
+例：中區、新營區"
+MerchantAddrCode,"聯絡地址-
+郵遞區號", String(3),"請帶入合作商店修改的聯絡地址之郵遞
+區號三碼
+例：台北市中正區，則帶 100"
+MerchantAddr,"聯絡地址-
+路名及門牌號碼", String(60),"請帶入合作商店修改的聯絡地址之路名
+及門牌號碼
+例：南港路二段 97 號 2 樓"
+MerchantEnAddr,商店英文聯絡地址,  String(255) ,合作商店之英文地址
