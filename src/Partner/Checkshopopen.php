@@ -176,6 +176,34 @@ class Checkshopopen extends BaseNewebPay
                 break;
         }
         $result["APPLEPAY"]["note"] = $data["APPLEPAY"][1];
+        // ----APPLEPAY WEB---------
+        $APPLEPAY_WEB_NAME = "APPLEPAY_WEB";
+        $result[$APPLEPAY_WEB_NAME]["name"] = $APPLEPAY_WEB_NAME;
+        $result[$APPLEPAY_WEB_NAME]["status"] = $data[$APPLEPAY_WEB_NAME][0];
+        switch ($data[$APPLEPAY_WEB_NAME][0]) {
+            case "0":
+                $result[$APPLEPAY_WEB_NAME]["statusText"] = "未啟用";
+                break;
+            case "1":
+                $result[$APPLEPAY_WEB_NAME]["statusText"] = "啟用";
+                break;
+            case "2":
+                $result[$APPLEPAY_WEB_NAME]["statusText"] = "會員隱藏";
+                break;
+            case "3":
+                $result[$APPLEPAY_WEB_NAME]["statusText"] = "申請中";
+                break;
+            case "4":
+                $result[$APPLEPAY_WEB_NAME]["statusText"] = "拒絕";
+                break;
+            case "5":
+                $result[$APPLEPAY_WEB_NAME]["statusText"] = "關閉";
+                break;
+            default:
+                $result[$APPLEPAY_WEB_NAME]["statusText"] = $data[$APPLEPAY_WEB_NAME][0];
+                break;
+        }
+        $result[$APPLEPAY_WEB_NAME]["note"] = $data[$APPLEPAY_WEB_NAME][1];
 
         // ----GOOGLEPAY---------
         $result["GOOGLEPAY"]["name"] = "GOOGLEPAY";
