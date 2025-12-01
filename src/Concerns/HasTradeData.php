@@ -268,6 +268,12 @@ trait HasTradeData
         }else{
             $this->TradeData['TAIWANPAY']  = 0;
         }
+        if(isset($arrPaymentMethod['APPLEPAY'])){
+            $this->TradeData['APPLEPAY'] = $arrPaymentMethod['APPLEPAY'] ? 1 : 0;
+
+        }else{
+            $this->TradeData['APPLEPAY']  = 0;
+        }
         if(isset($arrPaymentMethod['SAMSUNGPAY'])){
             $this->TradeData['SAMSUNGPAY'] = $arrPaymentMethod['SAMSUNGPAY'] ? 1 : 0;
 
