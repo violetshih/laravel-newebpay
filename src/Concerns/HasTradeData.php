@@ -218,7 +218,7 @@ trait HasTradeData
      * 支付方式
      *
      * @param  array  $arrPaymentMethod
-     * @param  string  $merge = custom:忽略定義檔,merge:連集且覆蓋定義檔,intersect:交集且定義檔不啟用的將保持不啟用
+     * @param  string  $merge = custom:忽略定義檔,merge:連集且覆蓋定義檔,intersect:交集且蓋定義檔
      * @return self
      */
     public function setPaymentMethod($arrPaymentMethod = [], $merge = 'intersect')
@@ -229,7 +229,7 @@ trait HasTradeData
         }else if($merge == 'intersect'){
             $intersect = array_intersect_key($conf, $arrPaymentMethod);
             foreach ($arrPaymentMethod as $key => $value) {
-                if ( isset($intersect[$key] ) && $intersect[$key] !== false) {
+                if ( isset($intersect[$key] ) ) {
                     $intersect[$key] = $value;
                 }
             }
@@ -273,6 +273,10 @@ trait HasTradeData
 
         }else{
             $this->TradeData['APPLEPAY']  = 0;
+        }
+        if(isset($arrPaymentMethod['APPLEPAY_WEB'])){
+            $this->TradeData['APPLEPAY'] = $arrPaymentMethod['APPLEPAY_WEB'] ? 1 : 0;
+
         }
         if(isset($arrPaymentMethod['SAMSUNGPAY'])){
             $this->TradeData['SAMSUNGPAY'] = $arrPaymentMethod['SAMSUNGPAY'] ? 1 : 0;
